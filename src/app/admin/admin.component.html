@@ -1,0 +1,42 @@
+<div class="admin-container">
+  <h1>Admin Dashboard</h1>
+
+  <div class="admin-section">
+    <h2>Manage Restaurants</h2>
+    <button (click)="openAddRestaurantForm()">Add New Restaurant</button>
+    <ul>
+      <li *ngFor="let restaurant of restaurants">{{ restaurant.name }}</li>
+    </ul>
+  </div>
+
+  <div *ngIf="showAddRestaurantForm">
+    <app-addresturant (close)="closeAddRestaurantForm()"></app-addresturant>
+  </div>
+
+  <div class="admin-section">
+    <h2>Manage Menu Items</h2>
+    <button (click)="openAddMenuItemForm()">Add New Menu Item</button>
+    <ul>
+      <li *ngFor="let menuItem of menuItems">{{ menuItem.name }}</li>
+    </ul>
+  </div>
+
+  <div class="admin-section">
+    <h2>Manage Orders</h2>
+    <ul>
+      <li *ngFor="let order of orders">{{ order.id }} - {{ order.status }}</li>
+    </ul>
+  </div>
+
+  <div class="admin-section">
+    <h2>Manage Users</h2>
+    <button (click)="openAddEmployeeForm()">Add New Employee</button>
+    <ul>
+      <li *ngFor="let user of users">{{ user.name }}</li>
+    </ul>
+  </div>
+
+  <div *ngIf="showAddEmployeeForm">
+    <app-addemployee (close)="closeAddEmployeeForm()"></app-addemployee>
+  </div>
+</div>
